@@ -1,4 +1,4 @@
-package com.assignment.keyvaluestore
+package com.assignment.keyvaluestore.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
