@@ -11,7 +11,7 @@ class KeyValueStoreImplTest {
         val keyValueStore = KeyValueStoreImpl()
 
         keyValueStore.set("foo", "123")
-        Assert.assertEquals(keyValueStore.get("foo"), "123")
+        Assert.assertEquals("123", keyValueStore.get("foo"))
     }
 
     @Test
@@ -20,7 +20,7 @@ class KeyValueStoreImplTest {
 
         keyValueStore.set("foo", "123")
         keyValueStore.delete("foo")
-        Assert.assertEquals(keyValueStore.get("foo"), null)
+        Assert.assertEquals(null, keyValueStore.get("foo"))
     }
 
     @Test
@@ -30,8 +30,8 @@ class KeyValueStoreImplTest {
         keyValueStore.set("foo", "123")
         keyValueStore.set("bar", "456")
         keyValueStore.set("baz", "123")
-        Assert.assertEquals(keyValueStore.count("123"), 2)
-        Assert.assertEquals(keyValueStore.count("456"), 1)
+        Assert.assertEquals(2, keyValueStore.count("123"))
+        Assert.assertEquals(1, keyValueStore.count("456"))
     }
 
     @Test
@@ -41,8 +41,8 @@ class KeyValueStoreImplTest {
         keyValueStore.beginTransaction()
         keyValueStore.set("foo", "456")
         keyValueStore.commitTransaction()
-        Assert.assertEquals(keyValueStore.rollbackTransaction(), false)
-        Assert.assertEquals(keyValueStore.get("foo"), "456")
+        Assert.assertEquals(false, keyValueStore.rollbackTransaction())
+        Assert.assertEquals("456", keyValueStore.get("foo"))
     }
 
     @Test
@@ -53,13 +53,13 @@ class KeyValueStoreImplTest {
         keyValueStore.set("bar", "abc")
         keyValueStore.beginTransaction()
         keyValueStore.set("foo", "456")
-        Assert.assertEquals(keyValueStore.get("foo"), "456")
+        Assert.assertEquals("456", keyValueStore.get("foo"))
         keyValueStore.set("bar", "def")
-        Assert.assertEquals(keyValueStore.get("bar"), "def")
-        Assert.assertEquals(keyValueStore.rollbackTransaction(), true)
-        Assert.assertEquals(keyValueStore.get("foo"), "123")
-        Assert.assertEquals(keyValueStore.get("bar"), "abc")
-        Assert.assertEquals(keyValueStore.commitTransaction(), false)
+        Assert.assertEquals("def", keyValueStore.get("bar"))
+        Assert.assertEquals(true, keyValueStore.rollbackTransaction())
+        Assert.assertEquals("123", keyValueStore.get("foo"))
+        Assert.assertEquals("abc", keyValueStore.get("bar"))
+        Assert.assertEquals(false, keyValueStore.commitTransaction())
     }
 
     @Test
@@ -71,13 +71,13 @@ class KeyValueStoreImplTest {
         keyValueStore.set("bar", "456")
         keyValueStore.set("foo", "456")
         keyValueStore.beginTransaction()
-        Assert.assertEquals(keyValueStore.get("456"), 2)
-        Assert.assertEquals(keyValueStore.get("foo"), "456")
+        Assert.assertEquals(2, keyValueStore.count("456"))
+        Assert.assertEquals("456", keyValueStore.get("foo"))
         keyValueStore.set("foo", "789")
-        Assert.assertEquals(keyValueStore.get("foo"), "789")
-        Assert.assertEquals(keyValueStore.rollbackTransaction(), true)
-        Assert.assertEquals(keyValueStore.get("foo"), "456")
-        Assert.assertEquals(keyValueStore.rollbackTransaction(), true)
-        Assert.assertEquals(keyValueStore.get("foo"), "123")
+        Assert.assertEquals("789", keyValueStore.get("foo"))
+        Assert.assertEquals(true, keyValueStore.rollbackTransaction())
+        Assert.assertEquals("456", keyValueStore.get("foo"))
+        Assert.assertEquals(true, keyValueStore.rollbackTransaction())
+        Assert.assertEquals("123", keyValueStore.get("foo"))
     }
 }

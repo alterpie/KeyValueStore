@@ -1,6 +1,7 @@
 package com.assignment.keyvaluestore.api.store
 
 import com.assignment.keyvaluestore.api.transaction.Transaction
+import com.assignment.keyvaluestore.api.transaction.TransactionImpl
 import java.util.LinkedList
 
 class KeyValueStoreImpl : KeyValueStore {
@@ -27,15 +28,18 @@ class KeyValueStoreImpl : KeyValueStore {
     }
 
     override fun beginTransaction() {
-        TODO("Not yet implemented")
+        transactions.add(TransactionImpl(transactions.lastOrNull()?.store ?: store))
     }
 
     override fun commitTransaction(): Boolean {
-        TODO("Not yet implemented")
+        val lastTransaction = transactions.pollLast() ?: return false
+        store.clear()
+        store.putAll(lastTransaction.store)
+        return true
     }
 
     override fun rollbackTransaction(): Boolean {
-        TODO("Not yet implemented")
+        return transactions.pollLast() != null
     }
 
     private fun getLastTransaction(): Transaction? {
