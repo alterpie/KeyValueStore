@@ -39,6 +39,6 @@ class KeyValueStoreImpl : KeyValueStore {
     }
 
     private fun getLastTransaction(): Transaction? {
-        return transactions.last
+        return transactions.lastOrNull()
     }
 }
