@@ -1,0 +1,43 @@
+[versions]
+
+# Project
+min_sdk = "21"
+compile_sdk = "33"
+target_sdk = "33"
+
+# Plugins
+agp = "7.4.0-rc01"
+kotlin = "1.7.20"
+
+# Compose
+compose-bom = "2022.12.00"
+compose-compiler = "1.3.2"
+
+# Androidx
+androidx-core = "1.9.0"
+androidx-activity = "1.6.1"
+
+# Test
+junit4 = "4.13.2"
+
+[libraries]
+androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+# Androidx
+androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+
+# Compose
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+compose-material = { module = "androidx.compose.material:material" }
+
+#Test
+test-junit4 = { module = "junit:junit", version.ref = "junit4" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
