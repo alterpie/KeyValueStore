@@ -1,6 +1,5 @@
-package com.assignment.keyvaluestore
+package com.assignment.keyvaluestore.api.store
 
-import com.assignment.keyvaluestore.api.store.KeyValueStoreImpl
 import org.junit.Assert
 import org.junit.Test
 
