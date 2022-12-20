@@ -1,4 +1,4 @@
-package com.assignment.keyvaluestore.ui.theme
+package com.assignment.keyvaluestore.presentation.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -4,7 +4,7 @@ import org.junit.Assert
 import org.junit.Test
 
 class TransactionImplTest {
-    
+
     @Test
     fun `should set and return value`() {
         val transaction = TransactionImpl(mapOf())
