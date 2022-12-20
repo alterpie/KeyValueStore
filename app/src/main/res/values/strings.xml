@@ -3,7 +3,7 @@
     <string name="output_command_message_template">&gt; %s</string>
     <string name="key_not_set">key not set</string>
     <string name="no_transaction">no transaction</string>
-    <string name="command_not_recognized"> &gt; %s\n
+    <string name="command_not_recognized"> &gt; %s\n\n
         Command is not recognized. Please use one of the following commands:\n
         SET &lt;key&gt; &lt;value&gt; // store the value for key\n
         GET &lt;key&gt; // return the current value for key\n
