@@ -12,6 +12,6 @@
         BEGIN // start a new transaction\n
         COMMIT // complete the current transaction\n
         ROLLBACK // revert to state prior to BEGIN call</string>
-    <string name="submit_command">Submit command</string>
+    <string name="submit">Submit</string>
     <string name="enter_command">Enter command</string>
 </resources>

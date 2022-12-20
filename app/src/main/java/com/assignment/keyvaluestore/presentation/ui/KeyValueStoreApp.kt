@@ -142,7 +142,7 @@ private fun InputSection(onSubmitCommand: (String) -> Unit) {
             textValue = ""
         },
     ) {
-        Text(text = stringResource(R.string.submit_command))
+        Text(text = stringResource(R.string.submit))
     }
 }
 
