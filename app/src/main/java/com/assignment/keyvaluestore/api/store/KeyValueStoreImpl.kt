@@ -4,7 +4,7 @@ import com.assignment.keyvaluestore.api.transaction.Transaction
 import com.assignment.keyvaluestore.api.transaction.TransactionImpl
 import java.util.LinkedList
 
-class KeyValueStoreImpl : KeyValueStore {
+internal class KeyValueStoreImpl : KeyValueStore {
 
     private val store = mutableMapOf<String, String>()
     private val transactions = LinkedList<Transaction>()
